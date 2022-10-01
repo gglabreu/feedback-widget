@@ -1,6 +1,6 @@
 import { FeedbackType, feedbackTypes } from "..";
 import { CloseButton } from "../../CloseButton";
-import { ArrowLeft } from "phosphor-react"
+import { ArrowLeft } from "phosphor-react";
 
 interface FeedbackContentStepProps {
   feedbackType: FeedbackType;
@@ -9,26 +9,35 @@ interface FeedbackContentStepProps {
 
 export function FeedbackContentStep({
   feedbackType,
-  onFeedbackRestartRequested
+  onFeedbackRestartRequested,
 }: FeedbackContentStepProps) {
   const feedbackTypeInfo = feedbackTypes[feedbackType];
   return (
     <>
       <header>
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="top-5 left-5 absolute text-zinc-400 hover:text-zinc-100"
-          onClick={onFeedbackRestartRequested}>
-          <ArrowLeft weight="bold" className="w-4 h-4"/>
+          onClick={onFeedbackRestartRequested}
+        >
+          <ArrowLeft weight="bold" className="w-4 h-4" />
         </button>
-          <span className="text-xl leading-6 flex items-center gap-2">
-            <img src={feedbackTypeInfo.image.source} alt={feedbackTypeInfo.image.alt} 
-            className="w-6 h-6"/>
-            {feedbackTypeInfo.title}
-          </span>
+        <span className="text-xl leading-6 flex items-center gap-2">
+          <img
+            src={feedbackTypeInfo.image.source}
+            alt={feedbackTypeInfo.image.alt}
+            className="w-6 h-6"
+          />
+          {feedbackTypeInfo.title}
+        </span>
         <CloseButton />
       </header>
-      <div className="flex py-8 gap-2 w-full"></div>
+      <form className="my-4 w-full">
+        <textarea
+          className="min-w-[384px] w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 boerder-zinc-600 bg-transparent rounded-md"
+          placeholder="Conte com detalhes o que está ocorrendo..."
+        />
+      </form>
     </>
   );
 }
