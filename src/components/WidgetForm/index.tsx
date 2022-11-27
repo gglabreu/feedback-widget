@@ -53,7 +53,7 @@ export function WidgetForm() {
         Feito por <span> </span>
         <a
           className="underline underline-offset-1"
-          href="https://github.com/gglabreu"
+          href="https://www.linkedin.com/in/guilhermeab/"
           target="_blank"
         >
           Guilherme Abreu
